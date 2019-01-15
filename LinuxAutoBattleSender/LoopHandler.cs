@@ -32,6 +32,7 @@ namespace LinuxAutoBattleSender
                     var dict = IOGetter.GetAddressAndAuthToken();
                     foreach (var add in dict.Keys)
                     {
+                        Console.WriteLine("Sending teams from : " + add);
                         await HttpBattleRequest.PostTeam(add, dict[add]);
                     }
                     File.WriteAllText("time/LastTimeCheck.txt", lastUnixTimeCheck.ToString());

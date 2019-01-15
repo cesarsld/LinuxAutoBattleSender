@@ -24,7 +24,7 @@ namespace LinuxAutoBattleSender
                 foreach (var team in json["teams"])
                 {
                     _ = SendTeam(JsonConvert.SerializeObject(new Team((string)team["teamId"])), auth);
-                    await Task.Delay(250);
+                    await Task.Delay(500);
 
                 }
             }
@@ -47,7 +47,8 @@ namespace LinuxAutoBattleSender
             using (var client = new HttpClient())
             {
                 var response = await client.SendAsync(req);
-                Console.WriteLine(response.ReasonPhrase);
+                var receive = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(receive);
             }
         }
     }
