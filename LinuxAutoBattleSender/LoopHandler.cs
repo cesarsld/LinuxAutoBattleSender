@@ -11,7 +11,7 @@ namespace LinuxAutoBattleSender
     class LoopHandler
     {
         public static int lastUnixTimeCheck = -1;
-        public static readonly int unixTimeBetweenUpdates = 43200;
+        public static readonly int unixTimeBetweenUpdates = 43200/2;
 
         public static async Task SendTeamsLoop()
         {
@@ -25,7 +25,7 @@ namespace LinuxAutoBattleSender
                     UpdateUnixLastCheck();
                 }
                 Console.Clear();
-                Console.WriteLine($"Time before next battles :  {43200 - (unixTime - lastUnixTimeCheck)} seconds");
+                Console.WriteLine($"Time before next battles :  {unixTimeBetweenUpdates - (unixTime - lastUnixTimeCheck)} seconds");
                 if (unixTime - lastUnixTimeCheck >= unixTimeBetweenUpdates)
                 {
                     lastUnixTimeCheck = unixTime;
