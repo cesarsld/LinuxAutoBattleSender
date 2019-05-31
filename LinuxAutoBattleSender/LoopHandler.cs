@@ -11,7 +11,8 @@ namespace LinuxAutoBattleSender
     class LoopHandler
     {
         public static int lastUnixTimeCheck = -1;
-        public static readonly int unixTimeBetweenUpdates = 43200/2;
+        public static readonly int unixTimeBetweenUpdates = 14400;
+
 
         public static async Task SendTeamsLoop()
         {
